@@ -197,6 +197,16 @@
             text-align: center;
             transition: transform 0.3s;
         }
+
+        .stat-card2 {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            width: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
         
         .stat-card:hover {
             transform: translateY(-10px);
@@ -207,6 +217,13 @@
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 10px;
+        }
+
+        .stat-number2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
         }
         
         .stat-desc {
@@ -240,6 +257,46 @@
             font-size: 1.4rem;
             margin-bottom: 15px;
             color: var(--primary-dark);
+        }
+
+        /* Diagrams */
+        .diagram-container {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .diagram-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            text-align: center;
+        }
+        
+        .diagram-placeholder {
+            height: 300px;
+            background: repeating-linear-gradient(
+                45deg,
+                #f0f0f0,
+                #f0f0f0 10px,
+                #e8e8e8 10px,
+                #e8e8e8 20px
+            );
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--gray);
+            margin: 20px 0;
+        }
+        
+        .diagram-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--gray);
         }
         
         /* My Contributions */
@@ -470,11 +527,17 @@
     <!-- Project Overview -->
     <section id="overview">
         <div class="container">
-            <h2 class="section-title">🎯 Project Overview</h2>
+            <h2 class="section-title">🎯 Evidence and Problems</h2>
             <div class="problem-stats">
                 <div class="stat-card">
                     <div class="stat-number">57%</div>
                     <div class="stat-desc">of Canadians distrust "eco-friendly" claims</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">More</div>
+                    <div class="stat-desc">people prefer purchasing a product if it is
+                        truly sustainable but need more information to help
+                        them make that decision</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">50%</div>
@@ -485,6 +548,25 @@
                     <div class="stat-desc">of construction wood wasted annually in Canada</div>
                 </div>
             </div>
+            <h2 class="section-title">🎯 Our Competitors</h2>
+            <div class="problem-stats">
+                <div class="stat-card2">
+                    <div class="stat-number">Local Companies</div>
+                    <div class="stat-desc">Still based on the photos to verify the source of
+                        wood and no digital traceability or QR-based transparency</div>
+                </div>
+                <div class="stat-card2">
+                    <div class="stat-number">TrusTrace</div>
+                    <div class="stat-number">(Sweden)</div>
+                    <div class="stat-desc">Provide supply chain transparency tools for fashion and footware industries</div>
+                </div>
+                <div class="stat-card2">
+                    <div class="stat-number">CircularTree</div>
+                    <div class="stat-number">(Germany)</div>
+                    <div class="stat-desc">Not specific to the furniture sector</div>
+                </div>
+            </div>
+
             
             <div class="feature-card">
                 <h3 class="feature-title">My Role & Project Objectives</h3>
@@ -501,6 +583,13 @@
             <h2 class="section-title">Solution</h2>
             
             <div class="solution-features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Capture Data From Source</h3>
+                    <p>Data is captured at the salvage yardand cannot be altered by studios</p>
+                </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-qrcode"></i>
@@ -532,6 +621,23 @@
             </div>
         </div>
     </section>
+
+    <!--Potential Clients-->
+    <h2 class="section-title">Potential Clients</h2>
+    <div class="diagram-container">
+        <div class="diagram-title">Early Adopters and Potential Clients</div>
+        <img src="media/Clients.png"
+     alt="System architecture diagram"
+     style="display:block; max-width:800px; width:100%; height:auto; margin:0 auto;">
+    </div>
+    <!--Money Model-->
+    <h2 class="section-title">Money_Model</h2>
+    <div class="diagram-container">
+        <div class="diagram-title">Achieve $1M in annual revenue within 3 years</div>
+        <img src="media/Money_Model.png"
+     alt="System architecture diagram"
+     style="display:block; max-width:800px; width:100%; height:auto; margin:0 auto;">
+    </div>
 
     <!-- My Contributions -->
     <section id="contributions">
