@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReclaimedID - Digital Passport for Reclaimed Wood Furniture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --secondary: #ff9800;
+            --dark: #333;
+            --light: #f5f5f5;
+            --gray: #757575;
+            --light-gray: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .role-badge {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: #f57c00;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button.secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        /* Content Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-dark);
+            font-size: 2.2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Problem Stats */
+        .problem-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .stat-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-desc {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+        
+        /* Solution */
+        .solution-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        /* My Contributions */
+        .contribution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .contribution-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--secondary);
+        }
+        
+        .contribution-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+        }
+        
+        .contribution-title i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        /* Technical Challenges */
+        .challenge-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            border-left: 5px solid var(--secondary);
+        }
+        
+        .challenge-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        /* Skills */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .skill-tag {
+            background-color: #e8f5e9;
+            color: var(--primary-dark);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Documentation Link */
+        .doc-link-section {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8f5e9 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        /* Contact */
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-section .section-title {
+            color: white;
+        }
+        
+        .contact-section .section-title::after {
+            background-color: var(--secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                width: 95%;
+                padding: 0 15px;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .stat-card {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .cta-button.secondary {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                    ReclaimedID
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#overview">Project Overview</a></li>
+                    <li><a href="#solution">Solution</a></li>
+                    <li><a href="#contributions">My Contributions</a></li>
+                    <li><a href="#challenges">Technical Challenges</a></li>
+                    <li><a href="technical-doc.html">Full Technical Documentation</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="role-badge">Full Stack Developer | Blockchain Integration Lead</div>
+            <h1>ReclaimedID - Digital Passport for Reclaimed Wood Furniture</h1>
+            <p>A blockchain-based sustainability verification platform addressing greenwashing in the furniture industry, showcasing complete technical architecture design and implementation capabilities</p>
+            <div style="margin-top: 30px;">
+                <a href="#solution" class="cta-button">Explore Solution</a>
+                <a href="technical-doc.html" class="cta-button secondary">View Full Technical Documentation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section id="overview">
+        <div class="container">
+            <h2 class="section-title">🎯 Project Overview</h2>
+            <div class="problem-stats">
+                <div class="stat-card">
+                    <div class="stat-number">57%</div>
+                    <div class="stat-desc">of Canadians distrust "eco-friendly" claims</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50%</div>
+                    <div class="stat-desc">of environmental claims lack evidence</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4M tonnes</div>
+                    <div class="stat-desc">of construction wood wasted annually in Canada</div>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <h3 class="feature-title">My Role & Project Objectives</h3>
+                <p><strong>My Role:</strong> Core developer responsible for system architecture design, backend microservices development, and blockchain integration.</p>
+                <p><strong>Project Goal:</strong> Create blockchain-based digital passports for each reclaimed wood furniture item, providing immutable supply chain traceability to address industry greenwashing.</p>
+                <p><strong>Tech Stack:</strong> Node.js, Express, PostgreSQL, Polygon Blockchain, IPFS, Docker, AWS</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section id="solution" style="background-color: #f5f5f5;">
+        <div class="container">
+            <h2 class="section-title">Solution</h2>
+            
+            <div class="solution-features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3 class="feature-title">QR Code Digital Passports</h3>
+                    <p>Each furniture item gets a unique QR code linking to blockchain-verified complete supply chain information.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3 class="feature-title">Blockchain Verification</h3>
+                    <p>Using Polygon blockchain to ensure data immutability, with IPFS for evidence file storage.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Supply Chain Traceability</h3>
+                    <p>Complete GPS-tracked journey from wood reclamation to finished product sales.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="feature-title">Third-party Certification Integration</h3>
+                    <p>Connecting with FSC, WWF, and other authoritative organizations to enhance credibility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Contributions -->
+    <section id="contributions">
+        <div class="container">
+            <h2 class="section-title">💻 My Technical Contributions</h2>
+            
+            <div class="contribution-grid">
+                <div class="contribution-card">
+                    <h3 class="contribution-title"><i class="fas fa-server"></i> Microservices Architecture Design</h3>
+                    <ul style="list-style-type: none; margin-top: 15px;">
+                        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--primary);"></i>
+                            Designed 5 core microservices: Product, Auth, Trace, File, Blockchain
+                        </li>
+                        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--primary);"></i>
+                            Implemented loose coupling between services with unified API gateway access
+                        </li>
+                        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--primary);"></i>
+                            Configured Docker containerization for consistent deployment environments
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="contribution-card">
+                    <h3 class="contribution-title"><i class="fab fa-ethereum"></i> Blockchain Integration</h3>
+                    <ul style="list-style-type: none; margin-top: 15px;">
+                        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--primary);"></i>
+                            Used Web3.js to connect with Polygon blockchain network
+                        </li>
+                        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--primary);"></i>
+                            Designed and implemented smart contract interaction layer
+                        </li>
+                        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--primary);"></i>
+                            Optimized Gas price estimation, reducing transaction costs by 40%
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="contribution-card">
+                    <h3 class="contribution-title"><i class="fas fa-database"></i> Data Storage Solutions</h3>
+                    <ul style="list-style-type: none; margin-top: 15px;">
+                        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--primary);"></i>
+                            PostgreSQL database design and performance optimization
+                        </li>
+                        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--primary);"></i>
+                            Redis caching strategy implementation for improved response times
+                        </li>
+                        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--primary);"></i>
+                            IPFS distributed file storage integration
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Challenges -->
+    <section id="challenges" style="background-color: #f0f9f0;">
+        <div class="container">
+            <h2 class="section-title">⚡ Technical Challenges & Solutions</h2>
+            
+            <div class="challenge-card">
+                <h3 class="challenge-title">Challenge: High Blockchain Transaction Failure Rate</h3>
+                <p><strong>Problem:</strong> Initially 30% of on-chain transactions failed due to inaccurate Gas estimation, affecting user experience.</p>
+                <p><strong>My Solution:</strong> Implemented dynamic Gas price estimator + transaction retry queue</p>
+                <p><strong>Result:</strong> Transaction success rate increased to over 95%, user complaints reduced by 80%.</p>
+            </div>
+            
+            <div class="challenge-card">
+                <h3 class="challenge-title">Challenge: IPFS File Access Latency</h3>
+                <p><strong>Problem:</strong> Direct file retrieval from IPFS network was slow, impacting passport verification experience.</p>
+                <p><strong>My Solution:</strong> Two-layer caching strategy (Redis memory cache + local file cache)</p>
+                <p><strong>Result:</strong> File loading time reduced from average 2-5 seconds to 300-800 milliseconds.</p>
+            </div>
+            
+            <div class="challenge-card">
+                <h3 class="challenge-title">Challenge: Microservice Data Consistency</h3>
+                <p><strong>Problem:</strong> Product state inconsistencies across multiple services led to passport verification failures.</p>
+                <p><strong>My Solution:</strong> Adopted event-driven architecture + Saga pattern for cross-service transactions</p>
+                <p><strong>Result:</strong> Data inconsistency issues reduced by 90%, significantly improving system reliability.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Outcomes -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">📚 Learning Outcomes & Skill Development</h2>
+            
+            <div class="feature-card">
+                <h3 class="feature-title">Technical Skill Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Microservices Architecture</span>
+                    <span class="skill-tag">Blockchain Development (Web3.js)</span>
+                    <span class="skill-tag">Smart Contracts Basics</span>
+                    <span class="skill-tag">Distributed Systems</span>
+                    <span class="skill-tag">API Design & Optimization</span>
+                    <span class="skill-tag">Database Performance Tuning</span>
+                    <span class="skill-tag">Containerization (Docker)</span>
+                    <span class="skill-tag">Cloud Services (AWS)</span>
+                    <span class="skill-tag">IPFS Distributed Storage</span>
+                    <span class="skill-tag">System Security Design</span>
+                </div>
+            </div>
+            
+            <div class="feature-card" style="margin-top: 30px;">
+                <h3 class="feature-title">Project Reflection & Improvement Ideas</h3>
+                <p><strong>What I Would Improve if Redoing:</strong></p>
+                <ol style="margin-left: 20px; margin-top: 10px;">
+                    <li>Use GraphQL instead of some REST APIs to simplify complex data aggregation</li>
+                    <li>Introduce APM (Application Performance Monitoring) tools earlier, not as an afterthought</li>
+                    <li>Increase automated test coverage for smart contracts</li>
+                    <li>Implement more comprehensive blue-green deployment strategy to reduce release risks</li>
+                </ol>
+                <p style="margin-top: 15px;"><strong>Key Takeaway:</strong> Experienced the complete process of designing and implementing a full system from scratch, understanding how architectural decisions impact long-term maintenance costs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Link Section -->
+    <div class="doc-link-section">
+        <div class="container">
+            <h2 style="color: var(--primary-dark); margin-bottom: 20px;">📖 View Full Technical Documentation</h2>
+            <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem;">
+                This page provides a project overview and personal contribution showcase. To view detailed technical architecture, code examples, system design documentation, and complete technical implementation details, click the link below:
+            </p>
+            <a href="technical-doc.html" class="cta-button" style="font-size: 1.2rem; padding: 15px 40px;">
+                <i class="fas fa-file-alt"></i> View Full Technical Documentation
+            </a>
+            <p style="margin-top: 20px; color: var(--gray);">
+                Complete documentation includes: 12 architecture diagrams, smart contract code, database design, API integration solutions, and more.
+            </p>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.2rem; opacity: 0.9;">
+                I'm Bingchan Liu from Carleton University and proficient in JAVA, JAVASCRIPT, PYTHON. I'm a good full-stack developer. If you're interested in our digital passport system, please contact us for more information.
+            </p>
+            
+            <div style="font-size: 1.3rem; margin-bottom: 30px;">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:bingchanliu@cmail.carleton.ca" style="color: white; text-decoration: underline;">bingchanliu@cmail.carleton.ca</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#overview">Project Overview</a>
+                <a href="#solution">Solution</a>
+                <a href="#contributions">My Contributions</a>
+                <a href="#challenges">Technical Challenges</a>
+                <a href="technical-doc.html">Full Technical Documentation</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 ReclaimedID Project Showcase - Personal Career Asset | Demo project, actual data anonymized
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                // Skip smooth scroll for external links
+                if(this.getAttribute('href').startsWith('http') || this.getAttribute('href').includes('.html')) {
+                    return;
+                }
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
