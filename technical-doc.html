@@ -9,6 +9,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
     <style>
+        /* ========== design-rationale ========== */
+        .design-rationale {
+    background-color: #f7f9f7;
+    border-left: 4px solid var(--primary);
+    padding: 16px 20px;
+    margin: 20px 0 30px;
+}
+
+.design-rationale h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.design-rationale p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
         :root {
             --primary: #2e7d32;
             --primary-dark: #1b5e20;
@@ -593,6 +616,12 @@
             <div style="background-color: #e8f5e9; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 5px solid var(--primary);">
                 <p><strong>Documentation Note:</strong> This page contains complete technical documentation including system architecture, code implementation, and detailed technical solutions. For project overview and personal contributions, return to the <a href="index.html" style="color: var(--primary); font-weight: 600;">main page</a>.</p>
             </div>
+
+            <p style="max-width: 900px; margin: 20px auto 40px; color: #555; text-align: center;">
+                The most technically challenging aspects of this system were blockchain transaction reliability
+                and cross-service data consistency, which are discussed in detail in later sections.
+            </p>
+            
             
             <h2 class="subsection-title" id="problem">🎯 Problem Statement: The Greenwashing Crisis</h2>
             
@@ -703,6 +732,15 @@
         <!-- Microservices Architecture -->
         <div class="content-section">
             <h2 class="section-title">2.1 Microservices Architecture</h2>
+            <div class="design-rationale">
+                <h4>Design Rationale</h4>
+                <p>
+                    A microservices architecture was selected to support multi-tenant usage,
+                    independent scaling of blockchain and file-processing workloads, and future expansion.
+                    Service boundaries were intentionally kept coarse-grained to avoid premature complexity.
+                </p>
+            </div>
+            
             
             <div class="diagram-container">
                 <div class="diagram-title">Microservices Architecture Diagram</div>
