@@ -382,6 +382,55 @@
             margin-bottom: 15px;
             color: var(--gray);
         }
+
+        /* ====== Diagram Image System (Production Ready) ====== */
+
+        .diagram-frame {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 25px 0;
+            padding: 20px;
+            background-color: #fafafa;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;}
+
+        .diagram-frame img {
+            max-width: 100%;
+            max-height: 600px;          /* 控制“视觉高度上限” */
+            width: auto;
+            height: auto;
+            object-fit: contain;        /* 核心：保持比例 */
+            display: block;
+            border-radius: 4px;}
+
+/* 特别高的架构图（如 data flow / security hierarchy） */
+        .diagram-frame.tall img {
+            max-height: 800px;
+        }
+
+/* 特别宽的架构图（如 deployment / system overview） */
+        .diagram-frame.wide img {
+            max-height: 500px;
+        }
+
+/* Mobile 优化 */
+        @media (max-width: 768px) {
+            .diagram-frame {
+                padding: 12px;
+            }
+
+            .diagram-frame img {
+                max-height: 420px;
+            }
+        }
+
+        .diagram-frame img {
+            cursor: zoom-in;
+        }
+
+
+
         
         /* Code Blocks */
         pre {
@@ -682,56 +731,62 @@
             <h3 class="subsection-title">2.1 Complete System Architecture Hierarchy Diagram</h3>
             <div class="diagram-container">
                 <div class="diagram-title">System Architecture Hierarchy Diagram</div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-project-diagram"></i>
-                    <p>Media file: media/image3.png</p>
-                    <p>Width: 7.67in, Height: 5.92in</p>
+                <div class="diagram-frame wide">
+                    <a href="media/System Architecture Hierarchy Diagram.png" target="_blank">
+                        <img src="media/System Architecture Hierarchy Diagram.png" alt="Microservices Architecture Diagram">
+                    </a>
+                    
                 </div>
             </div>
             
             <h3 class="subsection-title">2.2 Consumer Verification Process Sequence Diagram</h3>
             <div class="diagram-container">
                 <div class="diagram-title">Consumer Verification Process Sequence Diagram</div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-sitemap"></i>
-                    <p>Media file: media/image4.png</p>
-                    <p>Width: 6.5in, Height: 2.99in</p>
+                <div class="diagram-frame wide">
+                    <a href="media/Consumer Verification Process Sequence Diagram.png" target="_blank">
+                        <img src="media/Consumer Verification Process Sequence Diagram.png" alt="Microservices Architecture Diagram">
+                    </a>
+                    
                 </div>
             </div>
             
-            <h3 class="subsection-title">2.4 System Deployment Architecture Diagram</h3>
+            <h3 class="subsection-title">2.3 System Deployment Architecture Diagram</h3>
             <div class="diagram-container">
                 <div class="diagram-title">System Deployment Architecture Diagram</div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-server"></i>
-                    <p>Media file: media/image6.png</p>
-                    <p>Width: 6.5in, Height: 3.09in</p>
+                <div class="diagram-frame wide">
+                    <a href="media/System Deployment Architecture Diagram.png" target="_blank">
+                        <img src="media/System Deployment Architecture Diagram.png" alt="Microservices Architecture Diagram">
+                    </a>
+                    
                 </div>
             </div>
             
-            <h3 class="subsection-title">2.5 Data Storage and Flow Diagram</h3>
+            <h3 class="subsection-title">2.4 Data Storage and Flow Diagram</h3>
             <div class="diagram-container">
                 <div class="diagram-title">Data Storage and Flow Diagram</div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-database"></i>
-                    <p>Media file: media/image7.png</p>
-                    <p>Width: 1.09in, Height: 9.0in</p>
+                <div class="diagram-frame wide">
+                    <a href="media/Data Storage and Flow Diagram.png" target="_blank">
+                        <img src="media/Data Storage and Flow Diagram.png" alt="Microservices Architecture Diagram">
+                    </a>
+                    
                 </div>
             </div>
             
-            <h3 class="subsection-title">2.6 Security Architecture Hierarchy Diagram</h3>
+            <h3 class="subsection-title">2.5 Security Architecture Hierarchy Diagram</h3>
             <div class="diagram-container">
                 <div class="diagram-title">Security Architecture Hierarchy Diagram</div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-shield-alt"></i>
-                    <p>Security Architecture Diagram</p>
+                <div class="diagram-frame wide">
+                    <a href="media/Security Architecture Hierarchy Diagram.png" target="_blank">
+                        <img src="media/Security Architecture Hierarchy Diagram.png" alt="Microservices Architecture Diagram">
+                    </a>
+                    
                 </div>
             </div>
         </div>
 
         <!-- Microservices Architecture -->
         <div class="content-section">
-            <h2 class="section-title">2.1 Microservices Architecture</h2>
+            <h2 class="section-title">3.1 Microservices Architecture</h2>
             <div class="design-rationale">
                 <h4>Design Rationale</h4>
                 <p>
@@ -744,10 +799,11 @@
             
             <div class="diagram-container">
                 <div class="diagram-title">Microservices Architecture Diagram</div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-microchip"></i>
-                    <p>Media file: media/image8.png</p>
-                    <p>Width: 6.5in, Height: 7.19in</p>
+                <div class="diagram-frame wide">
+                    <a href="media/Microservices Architecture Diagram.png" target="_blank">
+                        <img src="media/Microservices Architecture Diagram.png" alt="Microservices Architecture Diagram">
+                    </a>
+                    
                 </div>
             </div>
             
@@ -859,18 +915,19 @@
 
         <!-- Data Storage Layer -->
         <div class="content-section">
-            <h2 class="section-title">2.2 Data Storage Layer</h2>
+            <h2 class="section-title">3.2 Data Storage Layer</h2>
             
             <div class="diagram-container">
                 <div class="diagram-title">Data Storage Layer Architecture Diagram</div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-database"></i>
-                    <p>Media file: media/image9.png</p>
-                    <p>Width: 6.5in, Height: 4.97in</p>
+                <div class="diagram-frame wide">
+                    <a href="media/Data Storage Layer Architecture Diagram.png" target="_blank">
+                        <img src="media/Data Storage Layer Architecture Diagram.png" alt="Microservices Architecture Diagram">
+                    </a>
+                    
                 </div>
             </div>
             
-            <h3 class="subsection-title">2.2.1 PostgreSQL Database Design</h3>
+            <h3 class="subsection-title">3.2.1 PostgreSQL Database Design</h3>
             
             <h4 class="subsection-subtitle">Core Table Structure Example</h4>
             <pre><code class="language-sql">CREATE TABLE products (
@@ -902,7 +959,7 @@ CREATE TABLE material_trace (
     verified BOOLEAN DEFAULT FALSE
 );</code></pre>
             
-            <h3 class="subsection-title">2.2.2 Redis Caching Strategy</h3>
+            <h3 class="subsection-title">3.2.2 Redis Caching Strategy</h3>
             
             <h4 class="subsection-subtitle">Cache Level Configuration</h4>
             <pre><code class="language-yaml">Cache levels:
@@ -931,14 +988,15 @@ Cache update strategies:
   • Lazy loading: Populate cache on first request
   • Active invalidation: Clear related cache after key operations</code></pre>
             
-            <h3 class="subsection-title">2.2.3 IPFS File Storage Solution</h3>
+            <h3 class="subsection-title">3.2.3 IPFS File Storage Solution</h3>
             
             <div class="diagram-container">
                 <div class="diagram-title">IPFS Storage Architecture Diagram</div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-network-wired"></i>
-                    <p>Media file: media/image10.png</p>
-                    <p>Width: 5.61in, Height: 2.63in</p>
+                <div class="diagram-frame wide">
+                    <a href="media/IPFS Storage Architecture Diagram.png" target="_blank">
+                        <img src="media/IPFS Storage Architecture Diagram.png" alt="Microservices Architecture Diagram">
+                    </a>
+                    
                 </div>
             </div>
             
@@ -964,14 +1022,7 @@ Cache update strategies:
         <div class="content-section" id="blockchain">
             <h2 class="section-title">2.3 Blockchain Layer Detailed Design</h2>
             
-            <div class="diagram-container">
-                <div class="diagram-title">Blockchain Layer Architecture Diagram</div>
-                <div class="diagram-placeholder">
-                    <i class="fab fa-ethereum"></i>
-                    <p>Media file: media/image11.png</p>
-                    <p>Width: 2.42in, Height: 5.13in</p>
-                </div>
-            </div>
+            
             
             <h3 class="subsection-title">2.3.1 Smart Contract Design</h3>
             
@@ -1054,10 +1105,11 @@ contract FurniturePassport {
             
             <div class="diagram-container">
                 <div class="diagram-title">Data On-Chaining Content Diagram</div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-link"></i>
-                    <p>Media file: media/image12.png</p>
-                    <p>Width: 6.5in, Height: 3.17in</p>
+                <div class="diagram-frame wide">
+                    <a href="media/Data On-Chaining Content Diagram.png" target="_blank">
+                        <img src="media/Data On-Chaining Content Diagram.png" alt="Microservices Architecture Diagram">
+                    </a>
+                    
                 </div>
             </div>
             
@@ -1085,10 +1137,11 @@ contract FurniturePassport {
             
             <div class="diagram-container">
                 <div class="diagram-title">External Service Integration Diagram</div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-plug"></i>
-                    <p>Media file: media/image13.png</p>
-                    <p>Width: 6.5in, Height: 7.42in</p>
+                <div class="diagram-frame wide">
+                    <a href="media/External Service Integration Diagram.png" target="_blank">
+                        <img src="media/External Service Integration Diagram.png" alt="Microservices Architecture Diagram">
+                    </a>
+                    
                 </div>
             </div>
             
@@ -1159,10 +1212,11 @@ class FSCCertificationClient {
             
             <div class="diagram-container">
                 <div class="diagram-title">Payment Solution Diagram</div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-credit-card"></i>
-                    <p>Media file: media/image14.png</p>
-                    <p>Width: 5.04in, Height: 5.93in</p>
+                <div class="diagram-frame wide">
+                    <a href="media/Payment Solution Diagram.png" target="_blank">
+                        <img src="media/Payment Solution Diagram.png" alt="Microservices Architecture Diagram">
+                    </a>
+                    
                 </div>
             </div>
             
@@ -1249,10 +1303,11 @@ class FSCCertificationClient {
             
             <div class="diagram-container">
                 <div class="diagram-title">Technical Decision Diagram</div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-code"></i>
-                    <p>Media file: media/image15.png</p>
-                    <p>Width: 6.5in, Height: 3.17in</p>
+                <div class="diagram-frame wide">
+                    <a href="media/Technical Decision Diagram.png" target="_blank">
+                        <img src="media/Technical Decision Diagram.png" alt="Microservices Architecture Diagram">
+                    </a>
+                    
                 </div>
             </div>
             
